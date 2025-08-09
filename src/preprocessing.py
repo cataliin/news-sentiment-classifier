@@ -11,6 +11,8 @@ nltk.download('averaged_perceptron_tagger', quiet=True)
 stop_words = set(stopwords.words('english'))
 lemmatizer = WordNetLemmatizer()
 
+stop_words -= {'no', 'nor', 'not', 'never'}
+
 _POS_MAP = {
     'J': wn.ADJ,
     'V': wn.VERB,
@@ -43,7 +45,9 @@ def normalize_label(y: str) -> str:
     return {
         "neg": "negative",
         "negative": "negative",
+        "bearish": "negative",
         "pos": "positive",
         "positive": "positive",
+        "bullish": "positive",
         "neutral": "neutral"
     }.get(y, y)
