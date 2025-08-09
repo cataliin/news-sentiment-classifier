@@ -4,3 +4,8 @@ myenv/
 __pycache__/
 .ipynb_checkpoints/
 *.pyc
+data/raw/*
+data/clean/*
+models/*
+!data/.gitkeep
+!models/.gitkeep
