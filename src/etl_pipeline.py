@@ -4,7 +4,7 @@ from pathlib import Path
 from .preprocessing import clean_text, normalize_label
 
 def extract():
-    df = pd.read_csv(config.RAW_DIR / 'all-data.csv', encoding='ISO-8859-1', header=None)
+    df = pd.read_csv(config.RAW_DIR / config.DATA_FILE, encoding=config.RAW_ENCODING, header=None)
     df.columns = ['sentiment', 'headline']
     return df
 
@@ -17,8 +17,8 @@ def transform(df : pd.DataFrame) -> pd.DataFrame:
 
 def load(df: pd.DataFrame) -> Path:
     config.CLEAN_DIR.mkdir(parents=True, exist_ok=True)
-    out = config.CLEAN_DIR / "cleaned_news.csv"
-    df.to_csv(out, index=False, encoding='utf-8')
+    out = config.CLEAN_DIR / config.CLEANED_FILE
+    df.to_csv(out, index=False, encoding=config.OUTPUT_ENCODING)
 
     return out
 
