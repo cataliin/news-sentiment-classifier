@@ -26,9 +26,8 @@ pipe = Pipeline([
     ("clf", LogisticRegression(
         max_iter=1000, 
         class_weight="balanced",
-        C=2.0,
-        penalty="l2",
-        multi_class="ovr"
+        C=3.0,
+        penalty="l2"
         )),
 ])
 
