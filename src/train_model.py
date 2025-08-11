@@ -18,8 +18,18 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 pipe = Pipeline([
-    ("tfidf", TfidfVectorizer(ngram_range=(1, 3), min_df=3, max_df=0.9, sublinear_tf=True)),
-    ("clf", LogisticRegression(max_iter=300, class_weight='balanced')),
+    ("tfidf", TfidfVectorizer(
+        ngram_range=(1, 3),
+        min_df=2,
+        max_df=0.95,
+        sublinear_tf=True)),
+    ("clf", LogisticRegression(
+        max_iter=1000, 
+        class_weight="balanced",
+        C=2.0,
+        penalty="l2",
+        multi_class="ovr"
+        )),
 ])
 
 pipe.fit(X_train, y_train)
