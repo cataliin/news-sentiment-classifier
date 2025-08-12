@@ -55,5 +55,8 @@ The model is built as a **scikit-learn Pipeline** with two main steps:
 
 Headline → Clean Text → TF-IDF Matrix → Logistic Regression → Sentiment Label
 
+**The accuracy and F1 scores, as well as the classification report are in the following image**
+
 <img width="801" height="433" alt="image" src="https://github.com/user-attachments/assets/2025416d-76e5-42e5-b8ee-93a43b383a16" />
+
 
