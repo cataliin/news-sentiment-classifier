@@ -1,5 +1,5 @@
 # Project Overview
-A News Sentiment Classifier that processes headlines and predicts sentiment.
+A News Sentiment Classifier that processes financial headlines and predicts sentiment.
 
 ## Steps for Running the Program
 
