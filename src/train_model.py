@@ -19,15 +19,15 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 pipe = Pipeline([
     ("tfidf", TfidfVectorizer(
-        ngram_range=(1, 3),
+        ngram_range=(1, 3), # include unigrams,bigrams and trigrams for context
         min_df=2,
         max_df=0.95,
-        sublinear_tf=True)),
+        sublinear_tf=True)), # log scaling to prevent bias towards frequent words
     ("clf", LogisticRegression(
         max_iter=1000, 
-        class_weight="balanced",
-        C=3.0,
-        penalty="l2"
+        class_weight="balanced", # remove the bias towards the 'netural' class and balance them
+        penalty="l2", # regularization to penalize large weights and prevent overfitting
+        C=3.0 # weak regularization
         )),
 ])
 
