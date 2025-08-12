@@ -36,16 +36,15 @@ The model is built as a **scikit-learn Pipeline** with two main steps:
 
 ### 1. TF-IDF Vectorizer
 - Converts cleaned text into a numerical matrix that the model can understand.
-- **TF-IDF** stands for *Term Frequency – Inverse Document Frequency*:
+- **TF-IDF**:
   - **Term Frequency (TF):** Words that appear more often in a headline get a higher score.
   - **Inverse Document Frequency (IDF):** Words that appear in most of the headlines get a lower weight.
-- This helps the model focus on words and short phrases that are both **frequent and distinctive** for a given sentiment.
-- Uses **n-grams** (1–3 words in a row) to capture short phrases.
+- This is an improved Bag of Words method with an extra step (IDF) for importance weighting.
 
 ### 2. Logistic Regression Classifier
-- A simple yet effective linear model for classification tasks.
+- An effective linear model for classification tasks.
 - Learns **weights** for each TF-IDF feature that push the prediction toward *positive*, *negative*, or *neutral*.
-- Uses `class_weight="balanced"` to reduce bias toward the majority class (neutral) by giving more importance to underrepresented classes.
+- Uses `class_weight="balanced"` to reduce bias toward the neutral class, which is the majority one, by giving more importance to the other classes.
 
 ### Why a Pipeline?
 - By saving both the **TF-IDF Vectorizer** and **Logistic Regression** together in a single pipeline (`model.joblib`), we ensure that:
