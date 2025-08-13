@@ -1,15 +1,6 @@
 # Project Overview
 A News Sentiment Classifier that processes financial headlines and predicts sentiment.
 
-## Steps for Running the Program
-
-```bash
-python -m venv myenv && source myenv/bin/activate
-pip install -r requirements.txt
-python setup_nltk.py
-python -m src.etl_pipeline
-```
-
 ## ETL Pipeline Overview
 
 The ETL pipeline processes the raw dataset into a clean, model-ready format.
